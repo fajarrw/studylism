@@ -12,7 +12,9 @@ export default function Login() {
     const [password, setPassword] = useState("");
     const [_, setCookies] = useCookies(["access_token"])
     const navigate = useNavigate(); // get the navigate function
-    
+
+    const URL = process.env.REACT_APP_API_URL;
+
     const onSubmit = async (event) => {
         event.preventDefault();
         // try {
@@ -24,7 +26,7 @@ export default function Login() {
         //     console.error(err);
         // }
         try{
-            const res = await axiosInstance.post("http://localhost:3001/auth/login",  
+            const res = await axiosInstance.post(URL + "/auth/login",  
                 {
                     email: email,
                     password: password
