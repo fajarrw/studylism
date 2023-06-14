@@ -27,7 +27,7 @@ export default function Jurnal() {
         _id: ""
       }})
 
-    const BASE_API_URL = "http://localhost:3001";
+    const BASE_API_URL = process.env.REACT_APP_API_URL;
 
     const handleOnClose = () => setShowAddJurnal(false);
 

@@ -7,14 +7,15 @@ import { userRouter } from "./routes/users.js"
 import { journalRouter } from "./routes/journal.js"
 import { learningStyleRouter } from "./routes/learningStyle.js"
 
+app.use(cors({
+    origin: "*"
+}));
+
 dotenv.config()  
 
 const app = express();
 
 app.use(express.json());
-app.use(cors({
-    origin: "*"
-}));
 
 app.use("/auth", userRouter);
 app.use("/journal", journalRouter);
