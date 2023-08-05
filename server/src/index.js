@@ -7,13 +7,13 @@ import { userRouter } from "./routes/users.js"
 import { journalRouter } from "./routes/journal.js"
 import { learningStyleRouter } from "./routes/learningStyle.js"
 
+const app = express();
+
 app.use(cors({
     origin: "*"
 }));
 
 dotenv.config()  
-
-const app = express();
 
 app.use(express.json());
 
@@ -30,3 +30,5 @@ mongoose.connect(
 )
 
 app.listen(3001, () => console.log("SERVER STARTED!"));
+
+export default app;
