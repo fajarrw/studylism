@@ -11,6 +11,8 @@ export default function IntroTest() {
 
     const useridbaru = localStorage.getItem("userID") 
 
+    const BASE_API_URL = process.env.REACT_APP_API_URL;
+
     useEffect(() => {
         // setUserID(localStorage.getItem("userID"));    
     }, []);
@@ -138,7 +140,7 @@ export default function IntroTest() {
         localStorage.setItem("learningStyle", style);
         console.log("submit trus dapet style: " ,style);
         try{
-            const res = await axios.put("http://localhost:3001/auth/learningStyle",  
+            const res = await axios.put(REACT_APP_API_URL + "/auth/learningStyle",  
                 {
                     _id : userID,
                     learningStyle: style

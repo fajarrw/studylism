@@ -168,7 +168,7 @@ export default function Jurnal() {
                             Progress
                         </div>
                         <h1>
-                            {loading || isNaN(progress) ? 0 :  progress*100}%
+                            {loading || isNaN(progress) ? 0 :  Math.floor(progress*100)}%
                         </h1>
                     </div>
                 </div>

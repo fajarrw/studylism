@@ -12,6 +12,8 @@ export default function SignUp() {
 
     const navigate = useNavigate(); // get the navigate function
     
+    const BASE_API_URL = process.env.REACT_APP_API_URL;
+
     const onSubmit = async (event) => {
         event.preventDefault();
         // try {
@@ -46,7 +48,7 @@ export default function SignUp() {
         //     console.error(err);
         // }
         try{
-            const res = await axiosInstance.post("http://localhost:3001/auth/register",  
+            const res = await axiosInstance.post(BASE_API_URL+ "/auth/register",  
                 {
                     name: name,
                     email: email,

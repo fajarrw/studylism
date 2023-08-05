@@ -19,6 +19,8 @@ export default function AddJurnal({visible, onClose}) {
     const [taskStatus, setTaskStatus] = useState(1);
     const [userId, setUserId] = useState("UserId");
     
+    const BASE_API_URL = process.env.REACT_APP_API_URL;
+
 	useEffect(() => {
         setUserId(localStorage.getItem("userID"));
 		console.log(status);
@@ -51,7 +53,7 @@ export default function AddJurnal({visible, onClose}) {
         //     console.error(err);
         // }
         try{
-            const res = await axiosInstance.post("http://localhost:3001/journal/add",  
+            const res = await axiosInstance.post(BASE_API_URL + "/journal/add",  
                 {
                     title: title,
                     description: description,

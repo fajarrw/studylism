@@ -11,7 +11,8 @@ import React, { useState , useEffect } from "react";
 export default function TaskCard({title, description, isDone, taskID}) {
     // const [status, setStatus] = useState(true);
     const [checked, setChecked] = useState(isDone === 1 ? false : true);
-
+    
+    const BASE_API_URL = process.env.REACT_APP_API_URL;
     var userID = "";
 
     useEffect(() => {
@@ -26,7 +27,7 @@ export default function TaskCard({title, description, isDone, taskID}) {
             status = 1 //sngaja diganti untuk mengakomodasi setChecked yang belum terupdate.
         } else { status = 3 }
         status = parseInt(status);
-        const res = await axios.put("http://localhost:3001/journal/edit", {
+        const res = await axios.put(BASE_API_URL + "/journal/edit", {
             _id : taskID,
             status : status
         });

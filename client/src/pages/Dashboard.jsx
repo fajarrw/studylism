@@ -20,13 +20,15 @@ function Dashboard() {
   const m = dayjs().month() + 1; //karena range 0-11. 0=januari dan 11=desember.
   const y = dayjs().year();
 
+  const BASE_API_URL = process.env.REACT_APP_API_URL;
+
   useEffect(() => {
     const id = localStorage.getItem("userID");
     setUserID(id);
     (async () => {
       try {
         const response = await axios.post(
-          "http://localhost:3001/journal/" + y + "/" + m + "/" + d,
+          BASE_API_URL + "/journal/" + y + "/" + m + "/" + d,
           {
             _id: userID,
           }

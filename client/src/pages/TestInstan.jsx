@@ -14,6 +14,9 @@ function TestInstan() {
   useEffect(() => {
     setUserID(localStorage.getItem("userID"));
   }, []);
+
+  const BASE_API_URL = process.env.REACT_APP_API_URL;
+
   const postLearningStyle = async (learningStyle) => {
     let styleCode = 0;
     if (learningStyle == "auditori") {
@@ -26,7 +29,7 @@ function TestInstan() {
       styleCode = 3;
     }
     try {
-      const res = await axios.put("http://localhost:3001/auth/learningStyle", {
+      const res = await axios.put(BASE_API_URL + "/auth/learningStyle", {
         _id: userID,
         learningStyle: styleCode,
       });
